@@ -2,7 +2,7 @@
 
 // import { useEffect } from 'react';
 
-export default function ProductClient({ data }) {
+export default function ProductClient() {
   console.log('ProductClient');
 
   //! Error in Server ==> Window is Not defined
@@ -21,13 +21,6 @@ export default function ProductClient({ data }) {
  */
 
   return (
-    <div className="py-5 font-bold text-red-600 text-lg">
-      ProductClient
-      <ul className="py-5 bg-slate-300 text-red-700">
-        {data.map((product) => (
-          <li key={product.id}>{product.title}</li>
-        ))}
-      </ul>
-    </div>
+    <div className="py-5 font-bold text-red-600 text-lg">ProductClient</div>
   );
 }

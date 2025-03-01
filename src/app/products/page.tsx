@@ -1,24 +1,17 @@
-import Link from 'next/link';
-import { getProducts } from '../lib/api/products.api';
 import ProductClient from './_components/ProductClient';
+import PrductsServer from './_components/PrductsServer';
+import { Suspense } from 'react';
 
 export default async function Page() {
-  const data = await getProducts();
   return (
     <>
+      <h1 className="text-center text-3xl py-5">Products Page</h1>
       <div className="flex gap-5 justify-center items-center">
-        <ul className="py-5 bg-slate-300 text-blue-700">
-          {data.map((product) => (
-            <Link
-              className="block"
-              href={`products/${product.id}`}
-              key={product.id}
-            >
-              {product.title}
-            </Link>
-          ))}
-        </ul>
-        <ProductClient data={data} />
+        {/* //*Straming ==> الداتا بتيجى على هيئة شلال  */}
+        <Suspense fallback="Loading .....">
+          <PrductsServer />
+        </Suspense>
+        <ProductClient />
       </div>
     </>
   );
