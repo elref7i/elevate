@@ -1,21 +1,15 @@
-import { getProducts } from '@/app/lib/api/products.api';
-import ProductClient from '../_components/ProductClient';
+import { getSingleProduct } from '@/app/lib/api/products.api';
 
 export default async function Page({ params }: { params: string }) {
-  console.log(params);
-  const data = await getProducts();
+  // console.log(params);
+  const data = await getSingleProduct({ id: params.id });
+  console.log(data);
+
   return (
     <>
-      <div>Product Dynamic Route</div>
+      <div>Product Dynamic Route {params.id}</div>
 
-      <div className="flex gap-5 justify-center items-center">
-        <ul className="py-5 bg-slate-300 text-blue-700">
-          {data.map((product) => (
-            <li key={product.id}>{product.title}</li>
-          ))}
-        </ul>
-        <ProductClient data={data} />
-      </div>
+      <div>{data.title}</div>
     </>
   );
 }
