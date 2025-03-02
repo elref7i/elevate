@@ -3,6 +3,7 @@ import PrductsServer from './_components/PrductsServer';
 import { Suspense } from 'react';
 
 export default async function Page() {
+  //* throw new Error('This is an error');
   return (
     <>
       <h1 className="text-center text-3xl py-5">Products Page</h1>

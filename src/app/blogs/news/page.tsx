@@ -1,3 +1,12 @@
+// import { redirect } from 'next/navigation';
+import Navigate from './_components/navigate';
+
 export default function Page() {
-  return <div>News</div>;
+  // redirect('/');
+  return (
+    <>
+      <div>News</div>
+      <Navigate />
+    </>
+  );
 }
